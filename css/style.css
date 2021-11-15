@@ -1,0 +1,778 @@
+@charset 'utf-8';
+@import url('font.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline-style: none;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+html {
+    font-size: 10px;
+}
+
+body {
+    font-family: 'notokr';
+    line-height: 1;
+    font-size: 100%;
+}
+/* 모달창 */
+.modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99999;
+    display: none;
+}
+
+.modal-cont {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 20px;
+    width: 400px;
+    height: 250px;
+    background-color: #fff;
+}
+
+.alert {
+    position: absolute;
+    left: 50%;
+    top: 2.8rem;
+    transform: translateX(-50%);
+    font-size: 3rem;
+}
+
+.modal-tit {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans KR'sans-serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    letter-spacing: -0.028rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modal-txt {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    transform: translate(-50%, -50%);
+    font-family: 'Noto Sans KR'sans-serif;
+    font-weight: 400;
+    font-size: 1.4rem;
+    color: #666;
+    letter-spacing: -0.028rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.modal-close {
+    position: absolute;
+    left: 50%;
+    top: 80%;
+    width: 12rem;
+    height: 3rem;
+    background-color: #000;
+    transform: translate(-50%, -50%);
+    border: none;
+    font-family: 'Noto Sans KR'sans-serif;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: #fff;
+    letter-spacing: -0.028rem;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.modal-close:hover {
+    background-color: #8eb5f0;
+}
+
+
+/*공통클래스*/
+.clearfix::after {
+    position: relative;
+    display: block;
+    width: 100%;
+    content: '';
+    clear: both;
+}
+
+.container {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.wrap {
+    position: relative;
+    display: block;
+}
+
+/*상단*/
+.header {
+    position: fixed;
+    display: block;
+    z-index: 999;
+    width: 100%;
+    height: 7.7rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.7rem;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.header .container {
+    max-width: 124rem;
+}
+
+.logo {
+    position: relative;
+    display: block;
+    line-height: 7.7rem;
+    margin-right: 3rem;
+}
+
+.logo img {
+    position: relative;
+    display: block;
+
+}
+
+.main-menu {
+    position: relative;
+    display: block;
+}
+
+.main-menu ul {
+    position: relative;
+    display: block;
+}
+
+.main-menu ul>li {
+    position: relative;
+    display: block;
+    float: left;
+    width: 16rem;
+    text-align: center;
+}
+
+.main-menu ul > li::after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 1.5rem;
+    right: 0;
+    width: 0.2rem;
+    height: 1.2rem;
+    background-color: #aaaaab;
+}
+
+.main-menu ul>li>a {
+    position: relative;
+    display: block;
+    color: #000;
+    font-family: notokr;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 3;
+}
+
+.all {
+    position: absolute;
+    display: block;
+    top: -1.5rem;
+    right: 0;
+    text-align: center;
+    width: 8.5rem;
+    height: 7.6rem;
+    background-color: #e6e6e6;
+}
+
+.all span {
+    position: relative;
+    display: block;
+    color: #222;
+    font-family: "notokr";
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: normal;
+    line-height: 7.6rem;
+}
+
+/*비주얼*/
+.visual {
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+.visual-wrap {
+    position: relative;
+    display: block;
+}
+
+.visual-wrap img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.visual-tit {
+    position: absolute;
+    top: 20rem;
+    left: 33rem;
+    display: inline-block;
+    height: 28.1rem;
+    width: 33.6rem;
+}
+
+.visual-tit img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*메인내용*/
+.main {
+    position: relative;
+    display: block;
+    padding: 5rem 0;
+}
+
+.main .container {
+    width: 117rem;
+    padding: 0 20rem;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.main-box {
+    position: relative;
+    display: block;
+    margin-bottom: 6rem;
+}
+
+.main .container .main-box:nth-child(2) {
+    margin: 0 10rem;
+}
+
+.main-box img {
+    position: relative;
+    display: block;
+    height: 9.4rem;
+    width: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 3rem;
+}
+
+.box-title {
+    position: relative;
+    display: block;
+    font-size: 3rem;
+    font-weight: 400;
+    font-family: 'notokr';
+    color: #617c05;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.box-txt {
+    position: relative;
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 1.7;
+    font-family: 'norokr';
+    color: #505050;
+    text-align: center;
+}
+
+/*상품영역*/
+.items {
+    position: relative;
+    display: block;
+    padding-bottom: 22rem;
+}
+
+.items .container {
+    width: 117rem;
+}
+
+.item {
+    position: relative;
+    display: block;
+    margin-bottom: 6.5rem;
+}
+
+.item-list {
+    position: relative;
+    display: block;
+    float: left;
+    width: 24rem;
+    height: 25.7rem;
+    margin-right: 7rem;
+}
+
+.item-list:last-child {
+    margin-right: 0;
+}
+
+.item-list img {
+    position: relative;
+    display: block;
+    height: 25.7rem;
+    width: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item-title {
+    position: relative;
+    display: block;
+    height: 3.4rem;
+    margin: 1.3rem 0;
+    text-align: center;
+    color: #000;
+    font-family: 'notokr';
+    font-size: 1.7rem;
+}
+
+.item-txt {
+    position: relative;
+    display: block;
+    text-align: center;
+    color: #6d6d6d;
+    font-family: notokr;
+    font-size: 1.4rem;
+    height: 1.4rem;
+}
+
+.icon-water-dot {
+    position: absolute;
+    left: 50%;
+    top: 45rem;
+    transform: translateX(-50%);
+    display: block;
+}
+
+.icon-water-dot img {
+    position: relative;
+    display: block;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.feature-wrap {
+    padding-top: 10rem;
+}
+
+.feature {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-top: 12rem;
+}
+
+.feature-list {
+    position: relative;
+    display: block;
+    float: left;
+    width: 25%;
+}
+
+.feature-list::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 0.1rem;
+    height: 3.8rem;
+    background-color: #bbbdc2;
+    top: 2.5rem;
+}
+
+.feature-list:first-child:after {
+    content: none;
+
+}
+
+.feature-list img {
+    position: relative;
+    display: block;
+    height: 7.2rem;
+    width: auto;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    margin-bottom: 1rem;
+}
+
+.feature-tit {
+    position: relative;
+    display: block;
+    color: #000;
+    font-family: 'notokr';
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+
+}
+
+.feature-txt {
+    position: relative;
+    display: block;
+    color: #666;
+    font-family: 'notokr';
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+}
+
+/*배너영역*/
+.banner {
+    position: relative;
+    display: block;
+}
+
+.banner .container {
+    width: 192rem;
+}
+
+.banner .container img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 11rem;
+}
+
+.icon-water-dot2 {
+    position: relative;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3.7rem;
+    height: 5.5rem;
+    margin-bottom: 7rem;
+}
+
+.ask {
+    position: relative;
+    display: block;
+    padding-bottom: 14.5rem;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.ask .container {
+    width: 80rem;
+}
+
+.ask-box-wrap {
+    position: relative;
+}
+
+.help {
+    padding: 5rem;
+    width: 7.6rem;
+    height: 7.4rem;
+}
+
+.help img {
+    position: relative;
+    display: block;
+    width: 7.6rem;
+    height: 7.4rem;
+
+
+}
+
+.faq {
+    padding: 4.5rem;
+    width: 7.6rem;
+    height: 7.4rem;
+}
+
+.faq img {
+    position: relative;
+    display: block;
+    width: 7.6rem;
+    height: 7.4rem;
+
+}
+
+.ask-txt {
+    position: relative;
+    display: inline-block;
+    color: #000;
+    font-family: 'notokr';
+    font-size: 1.8rem;
+    font-weight: 400;
+    border-top: 1px solid #bababa;
+    padding: 0 1rem;
+    white-space: nowrap;
+
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.ask-txt-1 {
+    right: -0.5rem;
+}
+
+/*하단*/
+.footer {
+    position: relative;
+    display: block;
+    padding-top: 4.5rem;
+    padding-bottom: 5.5rem;
+}
+
+.footer .container {
+    width: 120rem;
+}
+
+.footer-top {
+    position: relative;
+    display: block;
+}
+
+.sns {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 22.4rem;
+    margin-bottom: 3rem;
+}
+
+.sns-wrap {
+    position: relative;
+    display: block;
+    float: left;
+    margin-right: 2rem;
+    width: 4.1rem;
+    height: 4.1rem;
+}
+
+.sns-wrap:last-child {
+    margin-right: 0;
+}
+
+.icon-sns {
+    position: relative;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.footer-txt {
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    width: 44rem;
+}
+
+.footer-txt>li {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 0 2.5rem;
+}
+
+.footer-txt>li:after {
+    content: '';
+    position: relative;
+    display: inline-block;
+    top: -1.4rem;
+    left: -2rem;
+    width: 0.1rem;
+    height: 1rem;
+    background-color: #b0b0b0;
+}
+
+.footer-txt>li:first-child:after {
+    content: none;
+
+}
+
+.footer-txt>li>a {
+    position: relative;
+    display: block;
+    color: #000;
+    font-family: 'notokr';
+    font-size: 1.4rem;
+    letter-spacing: -0.07rem;
+    line-height: 1.3;
+    text-align: center;
+}
+
+.footer-txt>li:first-child>a {
+    font-weight: 500;
+}
+
+.family-site {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 1px solid #000;
+    padding: 0.9rem 14rem 0.9rem 1.3rem;
+}
+
+.family-site span {
+    position: relative;
+    display: block;
+    color: #666;
+    font-family: 'notokr';
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+.family-site img {
+    position: absolute;
+    display: inline-block;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.footer-mid {
+    position: relative;
+    display: block;
+    padding-top: 4rem;
+}
+
+.footer-mid-left {
+    position: relative;
+    display: block;
+    width: 50%;
+}
+
+.footer-mid-left:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 0.1rem;
+    height: 9.4rem;
+    background-color: #ccc;
+}
+
+.footer-mid-right {
+    position: relative;
+    display: block;
+    width: 50%;
+}
+
+.footer-mid-left-title {
+    position: relative;
+    display: block;
+    color: #222;
+    font-family: 'notokr';
+    font-weight: 300;
+    text-align: center;
+    font-size: 2.4rem;
+}
+
+.footer-mid-left-contact {
+    position: relative;
+    display: block;
+    color: #000;
+    font-family: 'notokr';
+    font-size: 3.2rem;
+    font-weight: 500;
+    margin: 1.1rem 0;
+    text-align: center;
+
+}
+
+.footer-mid-left-time {
+    position: relative;
+    display: block;
+    color: #222;
+    font-family: 'notokr';
+    font-weight: 300;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.footer-bottom {
+    position: relative;
+    display: block;
+    padding-top: 13rem;
+
+}
+
+.copy {
+    position: relative;
+    display: block;
+    width: 70rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+}
+
+.copy>li {
+    position: relative;
+    display: block;
+    float: left;
+    margin: 0.6rem 1rem;
+}
+
+.copy>li>a {
+    position: relative;
+    display: block;
+    color: #7b7b7b;
+    font-family: 'notokr';
+    font-size: 1.6rem;
+}
+
+.copy li:nth-child(4) {
+    padding-left: 7.5rem;
+}
